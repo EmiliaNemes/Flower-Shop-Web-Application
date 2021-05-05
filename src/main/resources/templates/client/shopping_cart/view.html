@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body style="background-color:#ffe1d2;" class="container">
+<b><u><h2 th:text="${loggedIn.name}"></h2></u></b>
+<h1 th:text="${title}"></h1>
+<nav th:replace="fragments_client :: navigation"></nav>
+
+<p th:unless="${products} and ${products.size()}">There are no products in the shopping cart yet!</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th></th>
+    </tr>
+
+    <tr th:each="product : ${products}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.color}"></td>
+        <td th:text="${product.category.displayValue}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.quantity}"></td>
+        <td><a th:href="@{/client/shopping_cart/update/{id}(id=${product.id})}" class="btn btn-light">EDIT<i class="fas fa-user-edit ml-2"></i></a></td>
+        <td><a th:href="@{/client/shopping_cart/remove/{id}(id=${product.id})}" class="btn btn-light">DELETE<i class="fas fa-user-edit ml-2"></i></a></td>
+    </tr>
+
+</table>
+
+<a th:href="@{/client/order/add}" class="btn btn-light">Finalize Order<i class="fas fa-user-edit ml-2"></i></a>
+
+</body>
+</html>

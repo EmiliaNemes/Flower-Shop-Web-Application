@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body style="background-color:#ffe1d2;" class="container">
+<b><u><h2 th:text="${loggedIn.name}"></h2></u></b>
+<h1 th:text="${title}"></h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<form action="#" style="max-width: 600px" th:action="@{/admin/client/remove/{id}(id=${client.id})}" th:object="${client}" method="post" >
+    <div class="form-group">
+        <label th:for="names">Name</label>
+        <input class="form-control" th:field="*{name}" readonly/>
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="email">Email Address</label>
+        <input class="form-control" th:field="*{emailAddress}" readonly/>
+        <span th:errors="*{emailAddress}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="phone">Phone Number</label>
+        <input class="form-control" th:field="*{phoneNumber}" readonly/>
+        <span th:errors="*{phoneNumber}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="username">Username</label>
+        <input class="form-control" th:field="*{username}" readonly/>
+        <span th:errors="*{username}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="role">Role</label>
+        <input class="form-control" th:field="*{role.displayValue}" readonly/>
+        <span th:errors="*{role}" class="error"></span>
+    </div>
+    <div>
+        <input class="form-control" type="submit" value="Delete Client"/>
+    </div>
+</form>
+
+</body>
+</html>

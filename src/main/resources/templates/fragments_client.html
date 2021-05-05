@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Flower Shop</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+</head>
+<body class="container" style="background-color:#ffe1d2;">
+
+<nav th:fragment="navigation">
+    <a href="/client/flower"> Home </a> |
+    <a href="/client/flower/index"> Flowers </a> |
+    <a href="/client/shopping_cart/view"> Shopping Cart </a> |
+    <a href="/client/order/view"> Orders </a> |
+    <a href="/login"> Logout </a> |
+</nav>
+
+</body>
+</html>

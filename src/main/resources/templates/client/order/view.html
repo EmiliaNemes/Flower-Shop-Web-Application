@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body style="background-color:#ffe1d2;" class="container">
+<b><u><h2 th:text="${loggedIn.name}"></h2></u></b>
+<h1 th:text="${title}"></h1>
+<nav th:replace="fragments_client :: navigation"></nav>
+
+<p th:unless="${orders} and ${orders.size()}">There are no finalized orders yet!</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Creation Date</th>
+        <th>Total Price</th>
+        <th></th>
+    </tr>
+
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.user.name}"></td>
+        <td th:text="${order.date}"></td>
+        <td th:text="${order.totalPrice}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

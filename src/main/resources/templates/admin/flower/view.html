@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body style="background-color:#ffe1d2;" class="container">
+<b><u><h2 th:text="${loggedIn.name}"></h2></u></b>
+<h1 th:text="${title}"></h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${flowers} and ${flowers.size()}">There are no flowers yet!</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th></th>
+    </tr>
+
+    <tr th:each="flower : ${flowers}">
+        <td th:text="${flower.name}"></td>
+        <td th:text="${flower.color}"></td>
+        <td th:text="${flower.category.displayValue}"></td>
+        <td th:text="${flower.price}"></td>
+        <td th:text="${flower.quantity}"></td>
+        <td><a th:href="@{/admin/flower/update/{id}(id=${flower.id})}" class="btn btn-light">EDIT<i class="fas fa-user-edit ml-2"></i></a></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

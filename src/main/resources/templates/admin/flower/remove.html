@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body style="background-color:#ffe1d2;" class="container">
+<b><u><h2 th:text="${loggedIn.name}"></h2></u></b>
+<h1 th:text="${title}"></h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width: 300px">
+    <div th:each="flower : ${flowers}" class="checkbox">
+        <input type="checkbox" name="ids" th:value="${flower.id}" th:id="${flower.id}"/>
+        <b><label th:for="${flower.id}" th:text="${flower.name}"></label></b>
+        <label th:for="${flower.id}" th:text="' - Color: ' + ${flower.color} + ' - Price: ' + ${flower.price}"></label>
+        <br />
+    </div>
+    <input class="form-control" type="submit" value="Delete Flower" />
+</form>
+
+</body>
+</html>

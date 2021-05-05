@@ -1,0 +1,10 @@
+ro.sd.a2
+ro.sd.a2.builder
+ro.sd.a2.controller
+ro.sd.a2.dto
+ro.sd.a2.entity
+ro.sd.a2.exceptions
+ro.sd.a2.mapper
+ro.sd.a2.repository
+ro.sd.a2.service
+ro.sd.a2.validators

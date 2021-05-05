@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body style="background-color:#ffe1d2;" class="container">
+
+<b><u><h2 th:text="${loggedIn.name}"></h2></u></b>
+<h1 th:text="${title}"></h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<form action="#" style="max-width: 600px" th:action="@{/admin/flower/update/{id}(id=${flower.id})}" th:object="${flower}" th:method="post" >
+
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="*{name}" readonly/>
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="color">Color</label>
+        <input class="form-control" th:field="*{color}" readonly/>
+        <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="category">Category</label>
+        <input class="form-control" th:field="*{category}" readonly/>
+        <span th:errors="*{category}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="price">Price</label>
+        <input class="form-control" th:field="*{price}"/>
+        <span th:errors="*{price}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="quantity">Quantity</label>
+        <input class="form-control" th:field="*{quantity}"/>
+        <span th:errors="*{quantity}" class="error"></span>
+    </div>
+
+    <input class="form-control" type="submit" value="Update Flower"/>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body style="background-color:#ffe1d2;" class="container">
+<b><u><h2 th:text="${loggedIn.name}"></h2></u></b>
+<h1 th:text="${title}"></h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${clients} and ${clients.size()}">There are no clients yet!</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Username</th>
+        <th></th>
+    </tr>
+
+    <tr th:each="client : ${clients}">
+        <td th:text="${client.name}"></td>
+        <td th:text="${client.emailAddress}"></td>
+        <td th:text="${client.phoneNumber}"></td>
+        <td th:text="${client.username}"></td>
+        <td><a th:href="@{/admin/client/remove/{id}(id=${client.id})}" class="btn btn-light">DELETE<i class="fas fa-user-edit ml-2"></i></a></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

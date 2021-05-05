@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body style="background-color:#ffe1d2;" class="container">
+<b><u><h2 th:text="${loggedIn.name}"></h2></u></b>
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+<p>
+    <br>
+    <br>
+    <img src="../../../static/images/background_8.png" width="512" height="288"
+         th:src="@{/images/background_8.png}" />
+    <img src="../../../static/images/background_77.png" width="512" height="288"
+         th:src="@{/images/background_77.png}" />
+    <img src="../../../static/images/background_1.png" width="512" height="320"
+         th:src="@{/images/background_1.png}" />
+    <img src="../../../static/images/background_66.png" width="512" height="320"
+         th:src="@{/images/background_66.png}" />
+</p>
+</body>
+</html>
